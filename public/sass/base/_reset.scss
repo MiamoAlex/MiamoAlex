@@ -97,6 +97,10 @@ body {
   }
 }
 
+video {
+  display: none;
+}
+
 a {
   cursor: url('../assets/hover.png'), pointer;
 }

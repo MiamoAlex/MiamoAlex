@@ -69,6 +69,11 @@ export class UiRenderer {
      */
     render() {
         this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+        if (this.hasCamera) {
+            this.ctx.drawImage(this.getElement('video'), 0, 0, innerWidth, innerHeight);
+        }
+
         this.ctx.fillStyle = '#fff'
         for (let i = 0; i < this.stars.length; i++) {
             const star = this.stars[i];

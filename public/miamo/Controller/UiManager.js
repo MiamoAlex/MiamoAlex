@@ -13,6 +13,9 @@ export class UiManager {
         },
         canvas: {
             element: '.canvas',
+        },
+        video : {
+            element: 'video'
         }
     }
 
