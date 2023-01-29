@@ -47,6 +47,7 @@ export class homeController extends UiController {
                 if (this.phoneUnlocked) {
                     ev.target.classList.remove('home__phone-dring');
                     this.audioManager.loadAudioFile('call');
+                    this.phoneUnlocked = false;
                 }
                 break;
         }
