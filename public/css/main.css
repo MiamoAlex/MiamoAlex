@@ -256,6 +256,7 @@ body {
 .home__doggyz-img {
   transform-origin: bottom;
   width: 10rem;
+  -webkit-user-drag: none;
   cursor: url("../assets/hover.png"), pointer;
 }
 .home__doggyz-crush {

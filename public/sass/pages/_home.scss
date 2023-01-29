@@ -49,6 +49,7 @@
         &-img {
             transform-origin: bottom;
             width: 10rem;
+            -webkit-user-drag: none;
             cursor: url("../assets/hover.png"), pointer;
         }
         &-crush {
