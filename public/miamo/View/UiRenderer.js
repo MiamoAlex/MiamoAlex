@@ -68,22 +68,20 @@ export class UiRenderer {
      * render() fait un rendu du canvas
      */
     render(time) {
-        if (time < this.lastFrameTimeMs + (1000 / 60)) {
-            window.requestAnimationFrame((timestamp) => {
-                this.render(timestamp);
-            });
-            return;
-        }
-        this.lastFrameTimeMs = time;
-
         this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-        this.ctx.fillStyle = 'white'
+        this.ctx.fillStyle = '#fff'
         for (let i = 0; i < this.stars.length; i++) {
             const star = this.stars[i];
             this.ctx.fillRect(star.x, star.y, star.size, star.size);
             star.y -= star.speed;
+            star.x += (this.pointer.x / window.innerWidth - 0.5) * 2;
             if (star.y < -100) {
                 star.y = window.innerHeight + 100;
+            }
+            if (star.x > window.innerWidth + 10) {
+                star.x = -20;
+            } else if (star.x < -20) {
+                star.x = window.indexedDB + 10;
             }
         }
 
