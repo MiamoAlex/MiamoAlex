@@ -1,4 +1,4 @@
-# Alexandre Sounalet - Creative Developper 🎆
+# MiamoAlex - Creative Developper 🎆
 
 ## > whoami
 - Front-end @Legrand 🔌
