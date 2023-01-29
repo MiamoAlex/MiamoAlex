@@ -52,7 +52,7 @@ export class homeController extends UiController {
                 if (ev.target.classList[1] == 'home__phone-dring') {
                     ev.target.src = '/assets/phonedead.png';
                     ev.target.classList.remove('home__phone-dring');
-                    this.audioManager.loadAudioFile(`call${Math.round(Math.random() * 3)}`, [{
+                    this.audioManager.loadAudioFile(`call${Math.round(Math.random() * 2) + 1}`, [{
                         progress: 90, callback: () => {
                             ev.target.src = '/assets/phone.png';
                             this.phoneUnlocked = false;
