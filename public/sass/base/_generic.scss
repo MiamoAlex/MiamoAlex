@@ -1,0 +1,50 @@
+@use "../abstracts/" as *;
+
+.theme {
+    @each $themes, $theme in $themes {
+        &__#{nth(map-values($theme), 1)} {
+            @each $theme, $shade in $theme {
+                @each $prop, $value in $shade {
+                    --clr-#{$theme}-#{$prop}: #{$value};
+                }
+            }
+        }
+    }
+}
+
+.transition {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: calc(100vh - 4rem);
+    width: 100%;
+    z-index: 100;
+    transition: transform 200ms, opacity 300ms;
+    transform: scaleX(0);
+    transform-origin: right;
+    background-color: var(--clr-main-black);
+    pointer-events: none;
+
+    &__open {
+        opacity: 1;
+        transform-origin: left;
+        transform: scaleX(1);
+    }
+}
+
+.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#templates {
+    display: none;
+}
+
+.canvas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    image-rendering: pixelated;
+}

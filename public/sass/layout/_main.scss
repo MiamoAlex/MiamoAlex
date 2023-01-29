@@ -1,0 +1,19 @@
+@use "../abstracts/" as *;
+
+body {
+    background-color: var(--clr-main-background);
+}
+
+.main {
+    font-size: 45px;
+    transition: transform 1000ms, opacity 1500ms;
+    opacity: 1;
+    transform-origin: center;
+    height: calc(100vh - 8rem);
+    overflow: auto;
+    position: relative;
+    &__transition {
+        opacity: 0;
+        transform: rotate(360deg);
+    }
+}
