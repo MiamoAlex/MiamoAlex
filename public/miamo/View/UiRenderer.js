@@ -67,7 +67,7 @@ export class UiRenderer {
     /**
      * render() fait un rendu du canvas
      */
-    render(time) {
+    render() {
         this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
         this.ctx.fillStyle = '#fff'
         for (let i = 0; i < this.stars.length; i++) {
@@ -81,7 +81,7 @@ export class UiRenderer {
             if (star.x > window.innerWidth + 10) {
                 star.x = -20;
             } else if (star.x < -20) {
-                star.x = window.indexedDB + 10;
+                star.x = window.innerWidth + 10;
             }
         }
 

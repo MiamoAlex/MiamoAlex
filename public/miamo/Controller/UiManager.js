@@ -84,6 +84,8 @@ export class UiManager {
 
     headerHandler(ev) {
         ev.preventDefault();
-        this.changePage(ev.target.dataset.page, 'main', '', true);
+        if (ev.target.dataset.page) {
+            this.changePage(ev.target.dataset.page, 'main', '', true);
+        }
     }
 }
