@@ -214,6 +214,10 @@ body {
   text-align: center;
   width: 100%;
   display: block;
+  font-size: 3.75rem;
+}
+.home__subtitle {
+  font-size: 2rem;
 }
 .home__about {
   margin: auto;
@@ -239,8 +243,8 @@ body {
 }
 .home__doggyz {
   position: absolute;
-  left: 12vw;
-  top: 50vh;
+  left: 7vw;
+  top: 60vh;
   font-size: 1.5rem;
   transform: skew(8deg);
   transform-origin: bottom;

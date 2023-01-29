@@ -1,11 +1,16 @@
-@use '../abstracts/' as *;
+@use "../abstracts/" as *;
 
 .home {
-
-    &__title, &__subtitle {
+    &__title,
+    &__subtitle {
         text-align: center;
         width: 100%;
         display: block;
+        font-size: 3.75rem;
+    }
+    
+    &__subtitle {
+        font-size: 2rem;
     }
 
     &__about {
@@ -22,7 +27,6 @@
 
     &__school {
         color: #9d343d;
-
     }
 
     &__phone {
@@ -31,14 +35,14 @@
         width: 10rem;
         bottom: 0;
         &-dring {
-            animation: shake 0.22s infinite;   
+            animation: shake 0.22s infinite;
         }
     }
 
     &__doggyz {
         position: absolute;
-        left: 12vw;
-        top: 50vh;
+        left: 7vw;
+        top: 60vh;
         font-size: 1.5rem;
         transform: skew(8deg);
         transform-origin: bottom;
@@ -50,12 +54,11 @@
         &-crush {
             transform: skew(8deg) scaleY(0.7);
         }
-
     }
 }
 
 @media (max-width: 600px) {
     body {
-        font-size: 1rem!important;
+        font-size: 1rem !important;
     }
 }
