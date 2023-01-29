@@ -38,7 +38,7 @@ export class AudioManager {
      * @param {String} type Type d'audio à jouer
      * @param {Array<Object>} callbacks Callbacks à jouer selon un certain temps
      */
-    async loadAudioFile(file, callbacks) {
+    async loadAudioFile(file, callbacks, pitch) {
         if (this.volume > 0 && this.gainNode) {
             const source = this.context.createBufferSource();
             // Récupération du son en mis en cache
@@ -51,6 +51,7 @@ export class AudioManager {
 
             const buffer = this.loadedSounds[`${this.currentTheme}/${file}`];
             source.buffer = buffer;
+            source.playbackRate.value = pitch ?? 1;
             source.connect(this.gainNode);
             source.start ? source.start() : source.noteOn(0);
 
