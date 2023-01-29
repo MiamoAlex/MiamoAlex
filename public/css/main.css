@@ -104,7 +104,12 @@ body {
   padding: 0;
   margin: 0;
   width: 100vw;
+  font-family: cursive;
   cursor: url("../assets/cur.png"), default;
+}
+
+*::selection {
+  background-color: violet;
 }
 
 a {
@@ -116,7 +121,6 @@ use {
 }
 
 ul {
-  list-style: none;
   padding-inline-start: 0;
   margin-block-end: 0;
   margin-block-start: 0;
@@ -126,6 +130,20 @@ body {
   background-color: var(--clr-main-primary);
 }
 
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
 .theme__main {
   --clr-name-main: ;
   --clr-main-white: #ebe0cc;
@@ -197,9 +215,31 @@ body {
   width: 100%;
   display: block;
 }
+.home__about {
+  margin: auto;
+  margin-top: 3rem;
+  width: 40%;
+  min-width: 30rem;
+  font-size: 1.25rem;
+}
+.home__about-list {
+  margin-left: 1rem;
+}
+.home__school {
+  color: #9d343d;
+}
+.home__phone {
+  position: absolute;
+  right: 5vw;
+  width: 10rem;
+  bottom: 0;
+}
+.home__phone-dring {
+  animation: shake 0.22s infinite;
+}
 .home__doggyz {
   position: absolute;
-  left: 16vw;
+  left: 12vw;
   top: 50vh;
   font-size: 1.5rem;
   transform: skew(8deg);

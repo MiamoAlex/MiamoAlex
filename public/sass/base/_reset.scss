@@ -87,7 +87,14 @@ body {
   padding: 0;
   margin: 0;
   width: 100vw;
+  font-family: cursive;
   cursor: url('../assets/cur.png'), default;
+}
+
+* {
+  &::selection {
+    background-color: violet;
+  }
 }
 
 a {
@@ -98,7 +105,6 @@ use {
 }
 
 ul {
-  list-style: none;
   padding-inline-start: 0;
   margin-block-end: 0;
   margin-block-start: 0;

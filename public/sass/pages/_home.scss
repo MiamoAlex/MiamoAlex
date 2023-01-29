@@ -8,9 +8,36 @@
         display: block;
     }
 
+    &__about {
+        margin: auto;
+        margin-top: 3rem;
+        width: 40%;
+        min-width: 30rem;
+        font-size: 1.25rem;
+
+        &-list {
+            margin-left: 1rem;
+        }
+    }
+
+    &__school {
+        color: #9d343d;
+
+    }
+
+    &__phone {
+        position: absolute;
+        right: 5vw;
+        width: 10rem;
+        bottom: 0;
+        &-dring {
+            animation: shake 0.22s infinite;   
+        }
+    }
+
     &__doggyz {
         position: absolute;
-        left: 16vw;
+        left: 12vw;
         top: 50vh;
         font-size: 1.5rem;
         transform: skew(8deg);
