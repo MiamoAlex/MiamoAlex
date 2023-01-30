@@ -16,7 +16,7 @@ export class homeController extends UiController {
                 document.querySelector('.home__phone').classList.add('home__phone-dring');
                 this.audioManager.loadAudioFile('dring');
             }
-        }, 7000);
+        }, 200);
     }
 
     dogPitch = 1;
@@ -52,7 +52,7 @@ export class homeController extends UiController {
                 if (ev.target.classList[1] == 'home__phone-dring') {
                     ev.target.src = '/assets/phonedead.png';
                     ev.target.classList.remove('home__phone-dring');
-                    this.audioManager.loadAudioFile(`call${Math.round(Math.random() * 2) + 1}`, [{
+                    this.audioManager.loadAudioFile(`call${Math.round(Math.random() * 3) + 1}`, [{
                         progress: 90, callback: () => {
                             ev.target.src = '/assets/phone.png';
                             this.phoneUnlocked = false;
@@ -91,6 +91,11 @@ export class homeController extends UiController {
                         this.uiRenderer.getElement('video').play();
                         this.uiRenderer.hasCamera = true;
                     });
+                break;
+
+            case 'home__trex':
+                this.audioManager.loadAudioFile('trex');
+                ev.target.classList.toggle('home__trex-active')
                 break;
         }
     }
