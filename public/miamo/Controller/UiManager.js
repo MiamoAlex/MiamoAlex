@@ -106,6 +106,6 @@ export class UiManager {
      */
     async setupDynamicData() {
         this.dataManager.dynamicData = await this.requestManager.getDynamicData();
-        this.uiRenderer.getElement('footer').children[0].textContent = `yoooo ?? you are the ${this.dataManager.dynamicData.visitors}th visitor !!!`;
+        this.uiRenderer.getElement('footer').children[0].textContent = `yoooo ?? you are like.. the ${this.dataManager.dynamicData.visitors}th visitor !!!`;
     }
 } 
