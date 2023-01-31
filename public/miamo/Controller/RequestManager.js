@@ -18,4 +18,11 @@ export class RequestManager {
         const req = await fetch('/visitors');
         return await req.json();
     }
+
+    /**
+     * you just killed a dog.
+     */
+    async iJustKilledADog() {
+        const req = await fetch('/dogkiller');
+    }
 }

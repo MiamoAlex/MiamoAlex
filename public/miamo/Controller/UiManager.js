@@ -72,6 +72,7 @@ export class UiManager {
         window.scroll(0, 0);
         this.currentLayout = partialName;
         this.currentData = data;
+        clearInterval(this.interval);
 
         const corePartial = await this.requestManager.getPartial(partialName);
 
@@ -104,7 +105,7 @@ export class UiManager {
      * setupDynamicData récupère les données dynamiques de l'application, puis les formatte sur la page
      */
     async setupDynamicData() {
-        const data = await this.requestManager.getDynamicData();
-        this.uiRenderer.getElement('footer').children[0].textContent = `you are the ${data.visitors}th visitor !!!`;
+        this.dataManager.dynamicData = await this.requestManager.getDynamicData();
+        this.uiRenderer.getElement('footer').children[0].textContent = `yoooo ?? you are the ${this.dataManager.dynamicData.visitors}th visitor !!!`;
     }
 } 

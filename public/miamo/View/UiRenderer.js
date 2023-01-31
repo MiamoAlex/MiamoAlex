@@ -20,7 +20,7 @@ export class UiRenderer {
             this.templates[template.className.split('template__')[1]] = template;
         }
 
-        for (let i = 0; i < 90; i++) {
+        for (let i = 0; i < 120; i++) {
             this.stars.push({
                 x: Math.random() * window.innerWidth,
                 y: Math.random() * window.innerHeight,

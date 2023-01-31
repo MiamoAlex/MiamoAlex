@@ -6,11 +6,16 @@ export class homeController extends UiController {
             home: {
                 element: '.home',
                 events: ['click']
+            },
+            mibleContent: {
+                element: '.home__mible-verse'
             }
         };
         super(uiManager, domElements);
 
-        setInterval(() => {
+        this.uiRenderer.getElement('mibleContent').textContent = this.mible[Math.floor(Math.random() * this.mible.length)]
+        document.querySelector('.home__doggyz-img').title = `what a cute dog. such a shame he died to humans ${this.dataManager.dynamicData.typodog} times`
+        this.uiManager.interval = setInterval(() => {
             if (Math.random() > 0.5 && !this.phoneUnlocked) {
                 this.phoneUnlocked = true;
                 document.querySelector('.home__phone').classList.add('home__phone-dring');
@@ -26,6 +31,8 @@ export class homeController extends UiController {
     games = ['https://bibux.fr', 'https://miamo.fr', 'https://miamo.games', 'https://froggy.alexsounalet.com', 'https://2022.alexsounalet.com']
     artists = ['https://open.spotify.com/artist/3AA28KZvwAUcZuOKwyblJQ?si=DsXO6kYQQ3Wzrsw4nK1Qvg', 'https://open.spotify.com/artist/6OqhFYFJDnBBHas02HopPT?si=yZqPy-JPQ1CAxDRGIzhVBg', 'https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb?si=3GdOik6pSEmmlRKHKqqWoA', 'https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb?si=cJcZKMvoTvCdGNzcXI-qKQ', 'https://open.spotify.com/artist/2CivYlBeDSjMj9Azw9cIHB?si=Z5bh3-sRT5SH-CP8EcULKw', 'https://open.spotify.com/artist/6Xx119Ju7henx5dkoRUcKe?si=wAgSukOcRPyz28fq4IuZbA']
 
+    mible = ['"And lo, the burger appeared before the hungry man, and he was pleased." - Griblonche 1:1', '"The bun was soft, the patty juicy, and the cheese melted with grace." - Pirux 1:2', '"Burgers shall be thy sustenance, and they shall bring thee great joy." - Rataflure 2:1', '"And the Lord said, Let there be toppings, and let them be many." - Griblonche 2:2', '"For the burger is a gift, to be savored and shared with all." - Pirux 3:1', '"The mustard and ketchup were blended in harmony, and all who tasted it were filled with delight." - Rataflure 3:2', '"Burgers shall be served with fries, and the two shall be as one." - Zapzonx 4:1', '"And the people rejoiced, for the burgers were hot, juicy, and delicious." - Griblonche 4:2', '"The burger shall be a symbol of hope and comfort, to all who partake." - Pirux 5:1', '"Blessed be the cheese that runs down thy burger, for it is a sign of richness and abundance." - Rataflure 5:2']
+
     /**
      * homeHandler() gère les clics sur al section de la page d'accueil
      * @param {Event} ev Evenement au clic sur la section de la page d'accueil 
@@ -36,8 +43,10 @@ export class homeController extends UiController {
                 this.dogPitch += 0.02;
                 this.audioManager.loadAudioFile('dog', null, this.dogPitch);
                 ev.target.classList.toggle('home__doggyz-crush');
-                if (this.dogPitch > 2) {
+                ev.target.style.transform = `scaleY(${this.dogPitch * 100}%)`
+                if (this.dogPitch > 3) {
                     this.audioManager.loadAudioFile('explosion');
+                    this.requestManager.iJustKilledADog();
                     ev.target.src = './assets/boom.png';
                     ev.target.className = 'home__doggyz-boom'
                     ev.target.previousElementSibling.textContent = 'you killed typo dog';
@@ -96,6 +105,11 @@ export class homeController extends UiController {
             case 'home__trex':
                 this.audioManager.loadAudioFile('trex');
                 ev.target.classList.toggle('home__trex-active')
+                break;
+
+            case 'home__mible':
+                this.audioManager.loadAudioFile('angel');
+                this.uiRenderer.getElement('mibleContent').textContent = this.mible[Math.floor(Math.random() * this.mible.length)]
                 break;
         }
     }

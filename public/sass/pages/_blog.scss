@@ -1,0 +1,71 @@
+@use "../abstracts/" as *;
+
+.blog {
+    width: 50vw;
+    padding-top: 3rem;
+    height: calc(100vh - 3rem);
+    margin: auto;
+    background: url("/assets/brick.jpg");
+    border: solid 5px white;
+    border-top: 0;
+    border-bottom: 0;
+    color: var(--clr-main-black);
+    min-width: 30rem;
+    &__title {
+        text-align: center;
+        font-size: 2.5rem;
+    }
+    &__articles {
+        padding-top: 2rem;
+        list-style: none;
+        @include flex(center, center, column);
+        gap: 1rem;
+    }
+
+    &__article {
+        cursor: url("../assets/hover.png"), pointer;
+    }
+
+    &__page {
+        position: fixed;
+        bottom: -50rem;
+        width: 60vw;
+        min-width: 30rem;
+        height: calc(100vh - 3rem);
+        background: url("/assets/paper.png");
+        margin: auto;
+        left: 0;
+        right: 0;
+        border: solid 5px white;
+        text-align: center;
+        @include flex(flex-start, center, column);
+        gap: 0.5rem;
+        border-bottom: 0;
+        overflow: auto;
+        z-index: 5;
+
+        transition: bottom 400ms;
+
+        &-open {
+            bottom: 3rem;
+        }
+    }
+}
+
+.article {
+    &__title {
+        font-size: 36px;
+    }
+    
+    &__body {
+        font-size: 20px;
+    }
+
+    &__close {
+        position: absolute;
+        top: 0;
+        left: .5rem;
+        font-size: 20px;
+        text-decoration: underline;
+    }
+}

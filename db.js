@@ -12,12 +12,12 @@ export class DBManager {
     }
 
     /**
-     * getVisitors() retourne le nombre de visiteurs actuels du site
+     * getDynamicData() returns the current dynamic data of the website
      */
     async getVisitors() {
-        this.addVisitor();
+        this.increaseCount('visitors')
         return new Promise((resolve, reject) => {
-            this.connection.query('SELECT visitors FROM generalinfos;', (error, results) => {
+            this.connection.query('SELECT visitors, typodog FROM generalinfos;', (error, results) => {
                 if (error) reject(error);
                 resolve(results)
             });
@@ -25,9 +25,9 @@ export class DBManager {
     }
 
     /**
-     * 
+     * addVisitor() increases a database count
      */
-    addVisitor() {
-        this.connection.query('UPDATE generalinfos SET visitors = visitors + 1 WHERE id = 0');
+    increaseCount(count) {
+        this.connection.query(`UPDATE generalinfos SET ${count} = ${count} + 1 WHERE id = 0`);
     }
 }

@@ -1,0 +1,44 @@
+.music {
+    padding-top: 4rem;
+    &__title {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    &__fred {
+        position: absolute;
+        right: 10rem;
+        bottom: 30rem;
+        &-dance {
+            animation: paul infinite 4000ms;
+        }
+    }
+    
+    &__bob {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        &-dance {
+            animation: bob infinite 8000ms;
+        }
+    }
+    
+    &__kitty {
+        position: absolute;
+        bottom: 0;
+        left: 10rem;
+        &-dance {
+            animation: kitty infinite 600ms;
+        }
+    }
+    
+    &__paul {
+        position: absolute;
+        left: 12rem;
+        transform-origin: bottom;
+        &-dance {
+            animation: paul infinite 200ms;
+        }
+    }
+
+}

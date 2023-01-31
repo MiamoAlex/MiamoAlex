@@ -4,9 +4,14 @@
     height: 500vh;
     overflow: hidden;
     padding-top: 4rem;
+    width: 50vw;
+    margin: auto;
+    background: url("/assets/fiber.png");
+    border: solid 5px white;
+    border-top: 0;
+    min-width: 30rem;
 
     &__title {
-        background-color: violet;
         width: fit-content;
         margin: auto;
         font-size: var(--fs-800);
@@ -15,13 +20,12 @@
     &__subtitle {
         font-size: var(--fs-600);
     }
-     
+
     &__title,
     &__subtitle {
         text-align: center;
         display: block;
     }
-
 
     &__works {
         position: absolute;
@@ -34,7 +38,30 @@
         }
     }
 
-    &__about {
+    &__mible {
+        width: 80%;
+        height: 20rem;
+        margin: auto;
+        background: url(/assets/mible.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        font-size: 16px;
+        margin-top: 10rem;
+        cursor: url("../assets/hover.png"), pointer;
+
+        &-title,
+        &-verse {
+            pointer-events: none;
+            display: block;
+            width: 48%;
+            padding-left: 1.5rem;
+            padding-top: 1.5rem;
+            text-align: center;
+        }
+    }
+
+    &__about,
+    &__projects {
         margin: auto;
         margin-top: 3rem;
         width: 80%;
@@ -43,6 +70,16 @@
 
         &-list {
             margin-left: 1rem;
+        }
+    }
+
+    &__projects {
+        &-list {
+            padding-top: 1rem;
+            @include flex(center, center, row);
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            list-style: none;
         }
     }
 

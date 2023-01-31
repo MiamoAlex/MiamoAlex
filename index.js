@@ -14,6 +14,11 @@ app.get('/visitors', async (req, res) => {
     res.json(data[0]);
 });
 
+app.get('/dogkiller', async (req, res)=>{
+    dbManager.increaseCount('typodog');
+    res.status(200);
+})
+
 app.listen(3005, () => {
     console.log(`Api ?? sur port 3005 💜`);
 });
