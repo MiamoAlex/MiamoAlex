@@ -345,6 +345,9 @@ body {
   text-align: center;
   display: block;
 }
+.home__cake {
+  margin: auto;
+}
 .home__works {
   position: absolute;
   right: 5%;
@@ -536,6 +539,9 @@ body {
 }
 .article__body {
   font-size: 20px;
+  width: 80%;
+  font-weight: 800;
+  min-width: 20rem;
 }
 .article__close {
   position: absolute;
