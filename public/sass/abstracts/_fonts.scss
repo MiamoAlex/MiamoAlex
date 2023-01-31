@@ -1,7 +1,6 @@
 @use "functions" as *;
 $fonts: (
-  ff: (
-  ),
+  ff: (),
   w: (
     thin: 100,
     light: 300,
@@ -13,13 +12,12 @@ $fonts: (
 $type-scale: (
   small: (
     500: rem(22),
-    600: rem(32),
+    600: rem(24),
     800: rem(47),
   ),
-  
   large: (
     500: rem(30),
-    600: rem(37),
-    800: rem(58),
+    600: rem(42),
+    800: rem(70),
   ),
 );

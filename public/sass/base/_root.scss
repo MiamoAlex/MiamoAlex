@@ -33,7 +33,6 @@
 
         @else if $screen-size==large {
             @include mq(large) {
-
                 @each $size,
                 $value in $font-size {
                     --fs-#{$size}: #{$value};

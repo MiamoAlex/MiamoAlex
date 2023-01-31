@@ -4,16 +4,16 @@
   --font-w-regular: 400;
   --font-w-bold: 800;
   --fs-500: 1.375rem;
-  --fs-600: 2rem;
+  --fs-600: 1.5rem;
   --fs-800: 2.9375rem;
   scroll-behavior: smooth;
   --app-height: 100%;
 }
-@media (min-width: 100em) {
+@media (min-width: 80rem) {
   :root {
     --fs-500: 1.875rem;
-    --fs-600: 2.3125rem;
-    --fs-800: 3.625rem;
+    --fs-600: 2.625rem;
+    --fs-800: 4.375rem;
   }
 }
 
@@ -260,7 +260,7 @@ body {
   transition: transform 1000ms, opacity 1500ms;
   opacity: 1;
   transform-origin: center;
-  height: calc(100vh - 2rem);
+  height: calc(100vh - 3rem);
   overflow: auto;
   position: relative;
 }
@@ -271,17 +271,22 @@ body {
 
 .footer {
   width: 100%;
-  height: 2rem;
+  height: 4rem;
+  overflow: auto;
   background-color: var(--clr-main-footer);
 }
 .footer__banners {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: row;
   list-style: none;
-  height: 100%;
   flex-wrap: wrap;
+}
+.footer__visitors {
+  display: block;
+  width: 100%;
+  text-align: center;
 }
 
 .home {
@@ -290,21 +295,22 @@ body {
   padding-top: 4rem;
 }
 .home__title {
-  font-size: 3vw;
   background-color: violet;
   width: fit-content;
   margin: auto;
+  font-size: var(--fs-800);
+}
+.home__subtitle {
+  font-size: var(--fs-600);
 }
 .home__title, .home__subtitle {
   text-align: center;
   display: block;
 }
-.home__subtitle {
-  font-size: 2vw;
-}
 .home__works {
   position: absolute;
-  right: 20%;
+  right: 5%;
+  top: 10rem;
   width: 6rem;
   transition: transform 300ms;
 }
@@ -314,8 +320,8 @@ body {
 .home__about {
   margin: auto;
   margin-top: 3rem;
-  width: 40%;
-  min-width: 30rem;
+  width: 80%;
+  max-width: 40rem;
   font-size: 1.25rem;
 }
 .home__about-list {
@@ -332,8 +338,8 @@ body {
 }
 .home__doggyz {
   position: absolute;
-  left: 7vw;
-  top: 60vh;
+  left: 4%;
+  top: 30rem;
   font-size: 1.5rem;
   transform: skew(8deg);
   transform-origin: bottom;
@@ -348,8 +354,8 @@ body {
   transform: skew(8deg) scaleY(0.7);
 }
 .home__trex {
-  top: 250vh;
-  left: 2vw;
+  top: 250rem;
+  left: 5%;
   cursor: url("../assets/hover.png"), pointer;
   position: absolute;
   transition: left 2600ms, transform 500ms 500ms;

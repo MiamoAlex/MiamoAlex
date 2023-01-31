@@ -9,7 +9,7 @@ body {
     transition: transform 1000ms, opacity 1500ms;
     opacity: 1;
     transform-origin: center;
-    height: calc(100vh - 2rem);
+    height: calc(100vh - 3rem);
     overflow: auto;
     position: relative;
     &__transition {

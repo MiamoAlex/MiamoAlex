@@ -6,25 +6,27 @@
     padding-top: 4rem;
 
     &__title {
-        font-size: 3vw;
         background-color: violet;
         width: fit-content;
         margin: auto;
+        font-size: var(--fs-800);
     }
 
+    &__subtitle {
+        font-size: var(--fs-600);
+    }
+     
     &__title,
     &__subtitle {
         text-align: center;
         display: block;
     }
 
-    &__subtitle {
-        font-size: 2vw;
-    }
 
     &__works {
         position: absolute;
-        right: 20%;
+        right: 5%;
+        top: 10rem;
         width: 6rem;
         transition: transform 300ms;
         &:hover {
@@ -35,8 +37,8 @@
     &__about {
         margin: auto;
         margin-top: 3rem;
-        width: 40%;
-        min-width: 30rem;
+        width: 80%;
+        max-width: 40rem;
         font-size: 1.25rem;
 
         &-list {
@@ -56,8 +58,8 @@
 
     &__doggyz {
         position: absolute;
-        left: 7vw;
-        top: 60vh;
+        left: 4%;
+        top: 30rem;
         font-size: 1.5rem;
         transform: skew(8deg);
         transform-origin: bottom;
@@ -73,8 +75,8 @@
     }
 
     &__trex {
-        top: 250vh;
-        left: 2vw;
+        top: 250rem;
+        left: 5%;
         cursor: url("../assets/hover.png"), pointer;
         position: absolute;
         transition: left 2600ms, transform 500ms 500ms;

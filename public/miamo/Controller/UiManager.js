@@ -4,17 +4,20 @@ export class UiManager {
             element: 'body',
             events: ['mousemove']
         },
-        main: {
-            element: '.main'
-        },
         header: {
             element: '.header',
             events: ['click']
         },
+        main: {
+            element: '.main'
+        },
+        footer: {
+            element: '.footer'
+        },
         canvas: {
             element: '.canvas',
         },
-        video : {
+        video: {
             element: 'video'
         }
     }
@@ -44,6 +47,7 @@ export class UiManager {
         }
 
         this.uiRenderer.initCanvas();
+        this.setupDynamicData();
         this.changePage('home', 'main', null, null);
     };
 
@@ -70,7 +74,7 @@ export class UiManager {
         this.currentData = data;
 
         const corePartial = await this.requestManager.getPartial(partialName);
-        
+
         this.uiRenderer.renderPartial(corePartial, destination, data, transition);
 
         let delay = 0;
@@ -85,10 +89,22 @@ export class UiManager {
         }, delay);
     }
 
+    /**
+     * headerHandler() gère la navigation sur le header avec les liens menant aux différentes pages
+     * @param {Event} ev 
+     */
     headerHandler(ev) {
         ev.preventDefault();
         if (ev.target.dataset.page) {
             this.changePage(ev.target.dataset.page, 'main', '', true);
         }
     }
-}
+
+    /**
+     * setupDynamicData récupère les données dynamiques de l'application, puis les formatte sur la page
+     */
+    async setupDynamicData() {
+        const data = await this.requestManager.getDynamicData();
+        this.uiRenderer.getElement('footer').children[0].textContent = `you are the ${data.visitors}th visitor !!!`;
+    }
+} 
