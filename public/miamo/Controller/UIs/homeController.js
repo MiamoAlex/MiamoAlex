@@ -16,7 +16,7 @@ export class homeController extends UiController {
                 document.querySelector('.home__phone').classList.add('home__phone-dring');
                 this.audioManager.loadAudioFile('dring');
             }
-        }, 200);
+        }, 6000);
     }
 
     dogPitch = 1;

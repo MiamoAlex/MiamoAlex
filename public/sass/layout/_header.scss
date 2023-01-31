@@ -1,4 +1,12 @@
+@use "../abstracts/" as *;
+
 .header {
     font-size: 1.5rem;
     height: 4rem;
+    position: fixed;
+    top: 0;
+    padding-left: 1rem;
+    @include flex(flex-start, center, row);
+    gap: .5rem;
+    z-index: 10;
 }

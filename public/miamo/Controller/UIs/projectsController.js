@@ -1,6 +1,6 @@
 import { UiController } from "../UiController.js";
 
-export class gamesController extends UiController {
+export class projectsController extends UiController {
     constructor(uiManager) {
         const domElements = {
         };
