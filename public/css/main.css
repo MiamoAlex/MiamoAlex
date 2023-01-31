@@ -507,7 +507,7 @@ body {
 }
 .blog__page {
   position: fixed;
-  bottom: -50rem;
+  bottom: -80rem;
   width: 60vw;
   min-width: 30rem;
   height: calc(100vh - 3rem);
@@ -525,7 +525,7 @@ body {
   border-bottom: 0;
   overflow: auto;
   z-index: 5;
-  transition: bottom 400ms;
+  transition: bottom 800ms;
 }
 .blog__page-open {
   bottom: 3rem;
