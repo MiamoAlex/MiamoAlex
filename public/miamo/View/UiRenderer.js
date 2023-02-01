@@ -10,7 +10,11 @@ export class UiRenderer {
         y: 0
     };
 
-    stars = []
+    particles = [];
+
+    visuals = {
+        snowflake: 'snowflake.png'
+    };
 
     constructor() {
         const templates = document.querySelector('#templates');
@@ -20,12 +24,20 @@ export class UiRenderer {
             this.templates[template.className.split('template__')[1]] = template;
         }
 
-        for (let i = 0; i < 120; i++) {
-            this.stars.push({
+        for (const key in this.visuals) {
+            const url = this.visuals[key];
+            const img = new Image();
+            img.src = `/assets/particles/${url}`;
+            this.visuals[key] = img;
+        }
+
+        for (let i = 0; i < 100; i++) {
+            this.particles.push({
+                name: 'snowflake',
                 x: Math.random() * window.innerWidth,
                 y: Math.random() * window.innerHeight,
                 speed: Math.floor(Math.random() * 5 + 1),
-                size: Math.floor(Math.random() * 4 + 2)
+                size: Math.random() * 0.7 + .2
             })
         }
     }
@@ -74,19 +86,18 @@ export class UiRenderer {
             this.ctx.drawImage(this.getElement('video'), 0, 0, innerWidth, innerHeight);
         }
 
-        this.ctx.fillStyle = '#fff'
-        for (let i = 0; i < this.stars.length; i++) {
-            const star = this.stars[i];
-            this.ctx.fillRect(star.x, star.y, star.size, star.size);
-            star.y -= star.speed;
-            star.x += (this.pointer.x / window.innerWidth - 0.5) * 2;
-            if (star.y < -100) {
-                star.y = window.innerHeight + 100;
+        for (let i = 0; i < this.particles.length; i++) {
+            const particle = this.particles[i];
+            this.ctx.drawImage(this.visuals[particle.name], particle.x, particle.y, 32 * particle.size, 32 * particle.size);
+            particle.y -= particle.speed;
+            particle.x += (this.pointer.x / window.innerWidth - 0.5) * 2;
+            if (particle.y < -100) {
+                particle.y = window.innerHeight + 100;
             }
-            if (star.x > window.innerWidth + 10) {
-                star.x = -20;
-            } else if (star.x < -20) {
-                star.x = window.innerWidth + 10;
+            if (particle.x > window.innerWidth + 40) {
+                particle.x = -20;
+            } else if (particle.x < -40) {
+                particle.x = window.innerWidth + 10;
             }
         }
 

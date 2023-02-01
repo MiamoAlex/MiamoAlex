@@ -16,7 +16,7 @@ export class homeController extends UiController {
         this.uiRenderer.getElement('mibleContent').textContent = this.mible[Math.floor(Math.random() * this.mible.length)]
         document.querySelector('.home__doggyz-img').title = `what a cute dog. such a shame he died to humans ${this.dataManager.dynamicData.typodog} times`
         this.uiManager.interval = setInterval(() => {
-            if (Math.random() > 0.5 && !this.phoneUnlocked) {
+            if (this.audioManager.gainNode && Math.random() > 0.6 && !this.phoneUnlocked) {
                 this.phoneUnlocked = true;
                 document.querySelector('.home__phone').classList.add('home__phone-dring');
                 this.audioManager.loadAudioFile('dring');
