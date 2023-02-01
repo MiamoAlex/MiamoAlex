@@ -110,8 +110,13 @@ export class homeController extends UiController {
 
             case 'home__mible':
                 this.audioManager.loadAudioFile('angel');
-                this.mibleId = this.mibleId < this.mible.length ? this.mibleId++ : this.mibleId = 0;
+                this.mibleId = (this.mibleId + 1) % this.mible.length;
                 this.uiRenderer.getElement('mibleContent').textContent = this.mible[this.mibleId];
+                break;
+
+            case 'home__smile':
+                this.audioManager.loadAudioFile('yeah', null, 1.2);
+                this.uiRenderer.addParticle('smiley');
                 break;
         }
     }

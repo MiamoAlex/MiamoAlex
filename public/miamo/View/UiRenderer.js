@@ -13,7 +13,8 @@ export class UiRenderer {
     particles = [];
 
     visuals = {
-        snowflake: 'snowflake.png'
+        snowflake: 'snowflake.png',
+        smiley: 'smiley.png'
     };
 
     constructor() {
@@ -31,7 +32,7 @@ export class UiRenderer {
             this.visuals[key] = img;
         }
 
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 90; i++) {
             this.particles.push({
                 name: 'snowflake',
                 x: Math.random() * window.innerWidth,
@@ -73,6 +74,20 @@ export class UiRenderer {
         this.getElement('canvas').height = window.innerHeight;
         window.requestAnimationFrame(() => {
             this.render();
+        })
+    }
+
+    /**
+     * addParticle() ajoute une particule magique à l'écran
+     * @param {String} name Nom de la particule à ajouter
+     */
+    addParticle(name) {
+        this.particles.push({
+            name,
+            x: Math.random() * innerWidth,
+            y: -10,
+            speed: Math.floor(Math.random() * 5 + 1),
+            size: Math.random() * 0.7 + .2
         })
     }
 
