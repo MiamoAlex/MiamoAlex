@@ -2,10 +2,20 @@
 
 .footer {
     width: 100%;
-    position: fixed;
-    bottom: 0;
-    overflow: auto;
     z-index: 10;
+    position: relative;
+    background: url('/assets/footer.jpg');
+
+    &::after {
+        content: '';
+        z-index: 10;
+        position: absolute;
+        height: 2.5rem;
+        top: -2.25rem;
+        background: url('/assets/burger.gif');
+        width: 100%;
+    }
+
     background-color: var(--clr-main-footer);
     @include flex(center, center, column);
 
@@ -24,7 +34,7 @@
         @include flex(center, flex-start, row);
         list-style: none;
         flex-wrap: wrap;
-        max-width: 48rem;
+        width: fit-content;
     }
 
     &__visitors {

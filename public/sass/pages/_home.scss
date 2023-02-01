@@ -1,7 +1,7 @@
 @use "../abstracts/" as *;
 
 .home {
-    height: 500vh;
+    height: 250vh;
     overflow: hidden;
     padding-top: 4rem;
     width: 50vw;
@@ -9,6 +9,7 @@
     background: url("/assets/fiber.png");
     border: solid 5px white;
     border-top: 0;
+    border-bottom: 0;
     min-width: 30rem;
 
     &__title {
@@ -89,9 +90,9 @@
 
     &__phone {
         position: absolute;
-        right: 5vw;
+        right: 6rem;
         width: 10rem;
-        bottom: 0;
+        top: 40rem;
         &-dring {
             animation: shake 0.22s infinite;
         }
@@ -116,7 +117,7 @@
     }
 
     &__trex {
-        top: 250rem;
+        top: 120rem;
         left: 5%;
         cursor: url("../assets/hover.png"), pointer;
         position: absolute;
