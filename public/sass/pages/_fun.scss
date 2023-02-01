@@ -1,3 +1,12 @@
 .fun {
-    height: calc(100vh - 3rem);
+    padding-top: 5rem;
+    height: calc(100vh - 3.25rem);
+
+    &__label {
+        text-align: center;
+        font-size: 15px;
+    }
+    &__gift {
+        margin: auto;
+    }
 }

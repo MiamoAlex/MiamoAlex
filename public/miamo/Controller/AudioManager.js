@@ -29,6 +29,10 @@ export class AudioManager {
             source.buffer = buffer;
             source.connect(this.gainNode);
             source.start ? source.start(0) : source.noteOn(0);
+            this.loadAudioFile('welcome');
+            setTimeout(() => {
+                this.loadAudioFile('ost1');
+            }, 3200);
         }
     }
 

@@ -2,15 +2,16 @@
 
 .home {
     height: 250vh;
-    overflow: hidden;
     padding-top: 4rem;
-    width: 50vw;
+    overflow: visible;
+    position: relative;
+    width: 100%;
+    min-width: 30rem;
     margin: auto;
     background: url("/assets/fiber.png");
     border: solid 5px white;
     border-top: 0;
     border-bottom: 0;
-    min-width: 30rem;
 
     &__title {
         width: fit-content;
@@ -32,11 +33,11 @@
         margin: auto;
     }
 
-    &__works {
+    &__smile {
         position: absolute;
         right: 5%;
-        top: 10rem;
-        width: 6rem;
+        top: 3rem;
+        width: 4rem;
         transition: transform 300ms;
         &:hover {
             transform: rotate(960deg);
@@ -90,7 +91,7 @@
 
     &__phone {
         position: absolute;
-        right: 6rem;
+        right: -25%;
         width: 10rem;
         top: 40rem;
         &-dring {
@@ -100,7 +101,7 @@
 
     &__doggyz {
         position: absolute;
-        left: 4%;
+        left: -25%;
         top: 30rem;
         font-size: 1.5rem;
         transform: skew(8deg);
@@ -118,13 +119,13 @@
 
     &__trex {
         top: 120rem;
-        left: 5%;
+        left: -20%;
         cursor: url("../assets/hover.png"), pointer;
         position: absolute;
         transition: left 2600ms, transform 500ms 500ms;
 
         &-active {
-            left: 75vw;
+            left: 70%;
             transform: scaleX(-1);
         }
     }
@@ -133,5 +134,12 @@
 @media (max-width: 600px) {
     body {
         font-size: 1rem !important;
+    }
+}
+
+@include mq(large) {
+    .home {
+        width: 50vw;
+        min-width: 30rem;
     }
 }

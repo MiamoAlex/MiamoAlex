@@ -13,7 +13,8 @@ export class homeController extends UiController {
         };
         super(uiManager, domElements);
 
-        this.uiRenderer.getElement('mibleContent').textContent = this.mible[Math.floor(Math.random() * this.mible.length)]
+        this.mibleId = Math.floor(Math.random() * this.mible.length);
+        this.uiRenderer.getElement('mibleContent').textContent = this.mible[this.mibleId];
         document.querySelector('.home__doggyz-img').title = `what a cute dog. such a shame he died to humans ${this.dataManager.dynamicData.typodog} times`
         this.uiManager.interval = setInterval(() => {
             if (this.audioManager.gainNode && Math.random() > 0.6 && !this.phoneUnlocked) {
@@ -77,7 +78,7 @@ export class homeController extends UiController {
                     window.open(this.games[randomGame]);
                     this.games.splice(randomGame, 1);
                 } else {
-                    ev.target.textContent = '🎮🎮🎮'
+                    ev.target.textContent = '🎮🎮🎮';
                 }
                 break;
 
@@ -109,7 +110,8 @@ export class homeController extends UiController {
 
             case 'home__mible':
                 this.audioManager.loadAudioFile('angel');
-                this.uiRenderer.getElement('mibleContent').textContent = this.mible[Math.floor(Math.random() * this.mible.length)]
+                this.mibleId = this.mibleId < this.mible.length ? this.mibleId++ : this.mibleId = 0;
+                this.uiRenderer.getElement('mibleContent').textContent = this.mible[this.mibleId];
                 break;
         }
     }
