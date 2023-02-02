@@ -1,5 +1,11 @@
 import express from 'express';
 import { DBManager } from './db.js';
+import path from 'path';
+
+import * as url from 'url';
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+
+const urls = ['home', 'blog', 'music', 'fun'];
 
 const app = express();
 const dbManager = new DBManager();
@@ -32,6 +38,13 @@ app.get('/dogkiller', async (req, res) => {
     res.status(200);
 })
 
-app.listen(3005, () => {
-    console.log(`Api ?? sur port 3005 💜`);
+app.listen(3005);
+
+// 
+app.get('*', function (req, res) {
+    if (urls.includes(req.path.replace('/', ''))) {
+        res.sendFile('/index.html', {root: path.join(__dirname, 'public')});
+    } else {
+        res.sendFile('/404.html', {root: path.join(__dirname, 'public')});
+    }
 });

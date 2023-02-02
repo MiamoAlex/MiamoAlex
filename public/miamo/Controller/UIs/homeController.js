@@ -25,6 +25,7 @@ export class homeController extends UiController {
 
         // Dog detail
         document.querySelector('.home__doggyz-img').title = `what a cute dog. such a shame he died to humans ${this.dataManager.dynamicData.typodog} times`
+        this.renderReviews();
         
         // Phone events
         this.uiManager.interval = setInterval(async () => {
@@ -33,10 +34,8 @@ export class homeController extends UiController {
                 document.querySelector('.home__phone').classList.add('home__phone-dring');
                 this.audioManager.loadAudioFile('dring');
             }
-
-            this.uiRenderer.getElement('reviews') = '';
-            this.uiRenderer.renderTemplate('review', await this.requestManager.getDynamicData('reviews'), 'reviewsList');
-        }, 4500);
+            this.renderReviews();
+        }, 6000);
     }
 
     dogPitch = 1;
@@ -136,15 +135,24 @@ export class homeController extends UiController {
     }
 
     /**
+     * renderReviews fait appraitre les reviews du site
+     */
+    async renderReviews() {
+        this.uiRenderer.getElement('reviewsList').innerHTML = '';
+        this.uiRenderer.renderTemplate('review', await this.requestManager.getDynamicData('reviews'), 'reviewsList');
+    }
+
+    /**
      * reviewFormHandler handles all clicks and keyboard presses on the review form
      * @param {Event} ev Click / Keyupevent
      */
     reviewFormHandler(ev) {
+        ev.preventDefault()
         if (ev.type == 'click' && ev.target.className === 'home__reviews-submit') {
             const review = this.dataManager.formToObj(new FormData(this.uiRenderer.getElement('reviewForm')));
             this.requestManager.postReview(review);
             setTimeout(async () => {
-                this.uiRenderer.renderTemplate('review', await this.requestManager.getDynamicData('reviews'), 'reviewsList');
+                this.renderReviews();
             }, 300);
         }
     }

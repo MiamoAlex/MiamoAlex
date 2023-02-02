@@ -118,7 +118,7 @@
     }
 
     &__trex {
-        top: 120rem;
+        top: 140rem;
         left: -20%;
         cursor: url("../assets/hover.png"), pointer;
         position: absolute;
@@ -130,8 +130,14 @@
         }
     }
 
+    &__guestbook {
+        margin: auto;
+        margin-top: 4rem;
+        margin-bottom: 1rem;
+    }
+
     &__reviews {
-        background-color: #ff929b;
+        background: url("/assets/chip.gif");
         margin: auto;
         width: 75%;
         min-width: 25rem;
@@ -142,11 +148,13 @@
             @include flex(flex-start, center, column);
             gap: 0.5rem;
             list-style: none;
+            overflow: auto;
         }
 
         &-form {
             width: 100%;
             height: 3rem;
+            font-size: 20px;
             @include flex(flex-start, center, row);
 
             & input {

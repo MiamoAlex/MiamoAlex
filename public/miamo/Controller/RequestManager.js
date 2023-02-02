@@ -25,6 +25,10 @@ export class RequestManager {
     async postReview(review) {
         const req = await fetch('/review', {
             method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
             body: JSON.stringify(review)
         })
     }

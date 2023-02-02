@@ -48,7 +48,8 @@ export class UiManager {
 
         this.uiRenderer.initCanvas();
         this.setupDynamicData();
-        this.changePage('home', 'main', null, null);
+
+        this.changePage(document.location.pathname.replaceAll('/', '') || 'home', 'main', null, null);
     };
 
     /**
@@ -73,6 +74,8 @@ export class UiManager {
         this.currentLayout = partialName;
         this.currentData = data;
         clearInterval(this.interval);
+
+        window.history.replaceState(partialName, '', partialName)
 
         const corePartial = await this.requestManager.getPartial(partialName);
 

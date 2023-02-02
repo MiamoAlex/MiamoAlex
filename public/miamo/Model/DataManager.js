@@ -2,10 +2,15 @@ import { Pet } from './Pet.js';
 
 export class DataManager {
     constructor() {
-        const save = localStorage.getItem('save');
+        const save = JSON.parse(localStorage.getItem('save'));
         if (!save) {
             this.save = {
-                pet: new Pet()
+                pet: new Pet('', 100, 100, 100, 'default', Date.now())
+            };
+            this.saveData();
+        } else {
+            this.save = {
+                pet: new Pet(save.pet.name, save.pet.hunger, save.pet.fun, save.pet.hygiene, save.pet.skin, save.pet.lastTime)
             };
         }
     }

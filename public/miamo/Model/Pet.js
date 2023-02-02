@@ -15,13 +15,17 @@ export class Pet {
     // Apparence de l'animal
     skin = String;
 
+    // Last date
+    lastTime = Date;
 
-    constructor(name, hunger, fun, hygiene, skin) {
+
+    constructor(name, hunger, fun, hygiene, skin, lastTime) {
         this.name = name;
         this.hunger = hunger;
         this.fun = fun;
         this.hygiene = hygiene;
         this.skin = skin;
+        this.lastTime = lastTime;
     }
 
     /**

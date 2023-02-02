@@ -33,13 +33,7 @@ export class UiRenderer {
         }
 
         for (let i = 0; i < 90; i++) {
-            this.particles.push({
-                name: 'snowflake',
-                x: Math.random() * window.innerWidth,
-                y: Math.random() * window.innerHeight,
-                speed: Math.floor(Math.random() * 5 + 1),
-                size: Math.random() * 0.7 + .2
-            })
+            this.addParticle('snowflake');
         }
     }
 
@@ -85,7 +79,7 @@ export class UiRenderer {
         this.particles.push({
             name,
             x: Math.random() * innerWidth,
-            y: -10,
+            y: Math.random() * innerHeight,
             speed: Math.floor(Math.random() * 5 + 1),
             size: Math.random() * 0.7 + .2
         })
