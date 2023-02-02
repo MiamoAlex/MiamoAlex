@@ -35,7 +35,7 @@ export class homeController extends UiController {
                 this.audioManager.loadAudioFile('dring');
             }
             this.renderReviews();
-        }, 6000);
+        }, 10000);
     }
 
     dogPitch = 1;
