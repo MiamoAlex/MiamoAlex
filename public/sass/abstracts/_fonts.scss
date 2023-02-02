@@ -1,4 +1,14 @@
 @use "functions" as *;
+
+@font-face {
+  font-family: 'Free Pixel';
+  src: url('/assets/FreePixel-Regular.woff2') format('woff2'),
+      url('/assets/FreePixel-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 $fonts: (
   ff: (),
   w: (

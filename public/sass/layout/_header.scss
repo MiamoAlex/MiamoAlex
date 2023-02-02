@@ -9,4 +9,10 @@
     @include flex(flex-start, center, row);
     gap: .5rem;
     z-index: 10;
+
+    &__music {
+        width: 2rem;
+        height: 2rem;
+        background: rgba(193, 107, 210, 0.5);
+    }
 }
