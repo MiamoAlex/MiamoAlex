@@ -25,6 +25,27 @@ export class DBManager {
     }
 
     /**
+     * getReviews() retruns all the user reviews of the website
+     * @returns {Array<Object>} User reviews in an array
+     */
+    async getReviews() {
+        return new Promise((resolve, reject) => {
+            this.connection.query('SELECT author, content, icon FROM reviews', (error, results) => {
+                if (error) reject(error);
+                resolve(results);
+            })
+        })
+    }
+
+    /**
+     * postReview() ajoute une review utilisateur au site
+     * @param {Object} review 
+     */
+    async postReview(review) {
+        this.connection.query(`INSERT INTO reviews (${review.author}, ${review.content}, ${Math.floor(Math.random() * 3)})`);
+    }
+
+    /**
      * addVisitor() increases a database count
      */
     increaseCount(count) {

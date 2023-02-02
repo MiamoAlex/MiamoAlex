@@ -100,7 +100,15 @@
     <canvas class="canvas"></canvas>
     <video id="video"></video>
 
-    <div id="templates" hidden></div>
+    <div id="templates" hidden>
+        <template class="template__review">
+            <li class="review">
+                <!-- <img src="/assets/icons/{{icon}}.png" alt="wow what a great user icon" class="review__icon"> -->
+                <span class="review__author">{{author}}</span>
+                <span class="review__content">{{content}}</span>
+            </li>
+        </template>
+    </div>
 
     <script src="./main.js" type="module"></script>
 </body>

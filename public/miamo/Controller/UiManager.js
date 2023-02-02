@@ -105,7 +105,7 @@ export class UiManager {
      * setupDynamicData récupère les données dynamiques de l'application, puis les formatte sur la page
      */
     async setupDynamicData() {
-        this.dataManager.dynamicData = await this.requestManager.getDynamicData();
+        this.dataManager.dynamicData = await this.requestManager.getDynamicData('visitors');
         this.uiRenderer.getElement('footer').children[0].children[1].textContent = `yoooo ?? you are like.. the ${this.dataManager.dynamicData.visitors}th visitor !!!`;
     }
 } 

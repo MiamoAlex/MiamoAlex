@@ -14,9 +14,19 @@ export class RequestManager {
      * getDynamicData() retourne le nombre de visiteurs du site notamment
      * @returns {Object}
      */
-    async getDynamicData() {
-        const req = await fetch('/visitors');
+    async getDynamicData(route) {
+        const req = await fetch(`/${route}`);
         return await req.json();
+    }
+
+    /**
+     * postReview() envoie à l'API une nouvelle review du site
+     */
+    async postReview(review) {
+        const req = await fetch('/review', {
+            method: 'POST',
+            body: JSON.stringify(review)
+        })
     }
 
     /**

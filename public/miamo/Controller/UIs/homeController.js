@@ -9,20 +9,34 @@ export class homeController extends UiController {
             },
             mibleContent: {
                 element: '.home__mible-verse'
+            },
+            reviewsList: {
+                element: '.home__reviews-content'
+            },
+            reviewForm: {
+                element: '.home__reviews-form',
+                events: ['click', 'keyup']
             }
         };
         super(uiManager, domElements);
 
         this.mibleId = Math.floor(Math.random() * this.mible.length);
         this.uiRenderer.getElement('mibleContent').textContent = this.mible[this.mibleId];
+
+        // Dog detail
         document.querySelector('.home__doggyz-img').title = `what a cute dog. such a shame he died to humans ${this.dataManager.dynamicData.typodog} times`
-        this.uiManager.interval = setInterval(() => {
+        
+        // Phone events
+        this.uiManager.interval = setInterval(async () => {
             if (this.audioManager.gainNode && Math.random() > 0.6 && !this.phoneUnlocked) {
                 this.phoneUnlocked = true;
                 document.querySelector('.home__phone').classList.add('home__phone-dring');
                 this.audioManager.loadAudioFile('dring');
             }
-        }, 6000);
+
+            this.uiRenderer.getElement('reviews') = '';
+            this.uiRenderer.renderTemplate('review', await this.requestManager.getDynamicData('reviews'), 'reviewsList');
+        }, 4500);
     }
 
     dogPitch = 1;
@@ -118,6 +132,20 @@ export class homeController extends UiController {
                 this.audioManager.loadAudioFile('yeah', null, 1.2);
                 this.uiRenderer.addParticle('smiley');
                 break;
+        }
+    }
+
+    /**
+     * reviewFormHandler handles all clicks and keyboard presses on the review form
+     * @param {Event} ev Click / Keyupevent
+     */
+    reviewFormHandler(ev) {
+        if (ev.type == 'click' && ev.target.className === 'home__reviews-submit') {
+            const review = this.dataManager.formToObj(new FormData(this.uiRenderer.getElement('reviewForm')));
+            this.requestManager.postReview(review);
+            setTimeout(async () => {
+                this.uiRenderer.renderTemplate('review', await this.requestManager.getDynamicData('reviews'), 'reviewsList');
+            }, 300);
         }
     }
 }

@@ -266,6 +266,12 @@ body {
   image-rendering: pixelated;
 }
 
+.review {
+  width: 100%;
+  height: 4rem;
+  background-color: #f2a1ef;
+}
+
 .header {
   font-size: 1.5rem;
   height: 4rem;
@@ -343,7 +349,7 @@ body {
 }
 
 .home {
-  height: 250vh;
+  height: 320vh;
   padding-top: 4rem;
   overflow: visible;
   position: relative;
@@ -455,6 +461,34 @@ body {
 .home__trex-active {
   left: 70%;
   transform: scaleX(-1);
+}
+.home__reviews {
+  background-color: #ff929b;
+  margin: auto;
+  width: 75%;
+  min-width: 25rem;
+}
+.home__reviews-content {
+  width: 100%;
+  height: 30rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: none;
+}
+.home__reviews-form {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+.home__reviews-form input {
+  width: 33.33%;
+  height: 3rem;
 }
 
 @media (max-width: 600px) {

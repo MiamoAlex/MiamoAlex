@@ -14,7 +14,20 @@ app.get('/visitors', async (req, res) => {
     res.json(data[0]);
 });
 
-app.get('/dogkiller', async (req, res)=>{
+// Returns the website reviews
+app.get('/reviews', async (req, res) => {
+    const messages = await dbManager.getReviews();
+    res.json(messages);
+});
+
+// Posts a new message on the messages board
+app.post('/review', async (req, res) => {
+    dbManager.postReview(req.body);
+    res.status(200);
+})
+
+// Increments the dog's count
+app.get('/dogkiller', async (req, res) => {
     dbManager.increaseCount('typodog');
     res.status(200);
 })

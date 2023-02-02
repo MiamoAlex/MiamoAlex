@@ -11,6 +11,19 @@ export class DataManager {
     }
 
     /**
+     * formToObj() converti un objet formulaire en objet JSON
+     * @param {FormData} formData Objet formulaire
+     * @returns {Object} Objet formatté
+     */
+    formToObj(formData) {
+        var obj = {};
+        for (const key of formData.keys()) {
+            obj[key] = formData.get(key);
+        }
+        return obj;
+    }
+
+    /**
      * getPet() retourne les données liées à l'animal du joueur
      * @returns {Object} Objet Pet
      */
