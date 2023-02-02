@@ -42,6 +42,9 @@ export class DBManager {
      * @param {Object} review 
      */
     async postReview(review) {
+        review.content = review.content.replaceAll("<[^>]*>", '');
+        review.author = review.author.replaceAll("<[^>]*>", '');
+        
         this.connection.query(`INSERT INTO reviews (author, content, icon) VALUES ('${review.author}', '${review.content}', ${Math.floor(Math.random() * 3)})`);
     }
 

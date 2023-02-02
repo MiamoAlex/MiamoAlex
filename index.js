@@ -28,8 +28,10 @@ app.get('/reviews', async (req, res) => {
 
 // Posts a new message on the messages board
 app.post('/review', async (req, res) => {
-    dbManager.postReview(req.body);
-    res.status(200);
+    if (req.body.author && req.body.content) {
+        dbManager.postReview(req.body);
+        res.status(200);
+    }
 })
 
 // Increments the dog's count

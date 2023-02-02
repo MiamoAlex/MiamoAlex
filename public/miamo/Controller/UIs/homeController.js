@@ -151,6 +151,7 @@ export class homeController extends UiController {
         if (ev.type == 'click' && ev.target.className === 'home__reviews-submit') {
             const review = this.dataManager.formToObj(new FormData(this.uiRenderer.getElement('reviewForm')));
             this.requestManager.postReview(review);
+            this.uiRenderer.getElement('reviewForm').children[1].value = '';
             setTimeout(async () => {
                 this.renderReviews();
             }, 300);
