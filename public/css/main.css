@@ -484,7 +484,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 0.5rem;
   list-style: none;
   overflow: auto;

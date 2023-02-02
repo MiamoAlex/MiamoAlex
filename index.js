@@ -23,7 +23,7 @@ app.get('/visitors', async (req, res) => {
 // Returns the website reviews
 app.get('/reviews', async (req, res) => {
     const messages = await dbManager.getReviews();
-    res.json(messages);
+    res.json(messages.reverse());
 });
 
 // Posts a new message on the messages board

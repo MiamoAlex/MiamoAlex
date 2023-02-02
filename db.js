@@ -42,7 +42,6 @@ export class DBManager {
      * @param {Object} review 
      */
     async postReview(review) {
-        console.log(review)
         this.connection.query(`INSERT INTO reviews (author, content, icon) VALUES ('${review.author}', '${review.content}', ${Math.floor(Math.random() * 3)})`);
     }
 
