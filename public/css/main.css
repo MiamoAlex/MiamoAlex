@@ -301,7 +301,6 @@ body {
 .header__music {
   width: 2rem;
   height: 2rem;
-  background: rgba(193, 107, 210, 0.5);
 }
 
 body {
@@ -428,7 +427,7 @@ body {
   margin-top: 3rem;
   width: 80%;
   max-width: 40rem;
-  font-size: 1.25rem;
+  font-size: 20px;
 }
 .home__about-list, .home__projects-list {
   margin-left: 1rem;

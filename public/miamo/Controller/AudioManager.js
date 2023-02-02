@@ -6,7 +6,8 @@ export class AudioManager {
 
     volume = 0.4;
 
-    constructor() {
+    constructor(uiRenderer) {
+        this.uiRenderer = uiRenderer;
         document.documentElement.addEventListener('click', ()=>{
             this.unlockContext();
         });
@@ -31,7 +32,7 @@ export class AudioManager {
             source.start ? source.start(0) : source.noteOn(0);
             this.loadAudioFile('welcome');
             setTimeout(() => {
-                this.loadAudioFile('ost1');
+                this.stopMusic();
             }, 3200);
         }
     }
@@ -42,7 +43,7 @@ export class AudioManager {
      * @param {String} type Type d'audio à jouer
      * @param {Array<Object>} callbacks Callbacks à jouer selon un certain temps
      */
-    async loadAudioFile(file, callbacks, pitch) {
+    async loadAudioFile(file, callbacks, pitch, type) {
         if (this.volume > 0 && this.gainNode) {
             const source = this.context.createBufferSource();
             // Récupération du son en mis en cache
@@ -58,6 +59,13 @@ export class AudioManager {
             source.playbackRate.value = pitch ?? 1;
             source.connect(this.gainNode);
             source.start ? source.start() : source.noteOn(0);
+
+            switch (type) {
+                case 'music':
+                    source.loop = true;
+                    this.currentMusic = source;
+                    break;
+            }
 
             if (callbacks) {
                 this.startTime = this.context.currentTime;
@@ -79,6 +87,20 @@ export class AudioManager {
                     this.startTime = this.context.currentTime;
                 }
             }
+        }
+    }
+
+    /**
+     * 
+     */
+    stopMusic() {
+        if (this.currentMusic) {
+            this.uiRenderer.getElement('pauseButton').src = '/assets/play.png';
+            this.currentMusic.stop();
+            this.currentMusic = null;
+        } else {
+           this.uiRenderer.getElement('pauseButton').src = '/assets/pause.png';
+            this.loadAudioFile(`ost${Math.floor(Math.random() * 3) + 1}`, null, 1, 'music');
         }
     }
 }

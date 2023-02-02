@@ -8,6 +8,9 @@ export class UiManager {
             element: '.header',
             events: ['click']
         },
+        pauseButton: {
+            element: '.header__music'
+        },
         main: {
             element: '.main'
         },
@@ -101,6 +104,8 @@ export class UiManager {
         ev.preventDefault();
         if (ev.target.dataset.page) {
             this.changePage(ev.target.dataset.page, 'main', '', true);
+        } else if (ev.target.className == 'header__music') {
+            this.audioManager.stopMusic(this.uiRenderer);
         }
     }
 

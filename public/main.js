@@ -19,7 +19,7 @@ const App = {
 
             App.view.uiRenderer = new MIAMO.UiRenderer();
 
-            App.controller.audioManager = new MIAMO.AudioManager();
+            App.controller.audioManager = new MIAMO.AudioManager(App.view.uiRenderer);
             App.controller.requestManager = new MIAMO.RequestManager();
 
             App.controller.uiManager = new MIAMO.UiManager(App.model.dataManager, App.view.uiRenderer, App.controller.audioManager, App.controller.requestManager);
