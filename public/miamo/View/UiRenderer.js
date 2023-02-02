@@ -35,6 +35,13 @@ export class UiRenderer {
         for (let i = 0; i < 90; i++) {
             this.addParticle('snowflake');
         }
+
+        window.addEventListener('resize', ()=>{
+            this.particles.forEach(particle => {
+                particle.x = Math.random() * innerWidth;
+                particle.y = Math.random() * innerHeight;
+            });
+        })
     }
 
     /**

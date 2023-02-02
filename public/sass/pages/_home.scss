@@ -35,6 +35,7 @@
 
     &__smile {
         position: absolute;
+        cursor: url("../assets/hover.png"), pointer;
         right: 5%;
         top: 3rem;
         width: 4rem;
@@ -118,7 +119,7 @@
     }
 
     &__trex {
-        top: 140rem;
+        top: 175rem;
         left: -20%;
         cursor: url("../assets/hover.png"), pointer;
         position: absolute;
@@ -134,12 +135,15 @@
         margin: auto;
         margin-top: 4rem;
         margin-bottom: 1rem;
+        font-size: 24px;
+        @include flex(center, center, row);
     }
 
     &__reviews {
         background: url("/assets/chip.gif");
         margin: auto;
         width: 75%;
+        border: solid #145414 3px;
         min-width: 25rem;
 
         &-content {
@@ -162,6 +166,12 @@
                 height: 3rem;
             }
         }
+    }
+
+    &__burgermaker {
+        width: 75%;
+        min-width: 25rem;
+        background: url("/assets/ceramic.jpg");
     }
 }
 @media (max-width: 600px) {
