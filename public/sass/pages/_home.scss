@@ -1,14 +1,14 @@
 @use "../abstracts/" as *;
 
 .home {
-    height: 320vh;
+    height: 380vh;
+    background: url("/assets/fiber.png");
     padding-top: 4rem;
     overflow: visible;
     position: relative;
     width: 100%;
     min-width: 30rem;
     margin: auto;
-    background: url("/assets/fiber.png");
     border: solid 5px white;
     border-top: 0;
     border-bottom: 0;
@@ -172,9 +172,92 @@
     &__burgermaker {
         width: 75%;
         min-width: 25rem;
+        color: var(--clr-main-white);
         background: url("/assets/ceramic.jpg");
+        margin: auto;
+        font-size: 1.5rem;
+        margin-top: 3rem;
+
+        &-title,
+        &-print {
+            display: inline;
+        }
+
+        &-ingredients {
+            @include flex(center, center, row);
+            gap: 0.5rem;
+        }
+
+        &-burger {
+            height: 32rem;
+            width: 100%;
+            padding: 1rem 0;
+            overflow: auto;
+            @include flex(flex-start, center, column-reverse);
+        }
+
+        &-part {
+            margin-top: -3rem;
+        }
+
+        &-ingredient {
+            width: 3rem;
+            height: 3rem;
+            cursor: url("../assets/hover.png"), pointer;
+        }
     }
 }
+
+@media print {
+    @page {
+        size: A4; /* ISO/JIS A4 */
+        margin: 0;
+    }
+
+    footer,
+    header,
+    .home__reviews,
+    .home__guestbook,
+    .home__about,
+    .home__doggyz,
+    .home__title,
+    .home__subtitle,
+    .home__projects,
+    .home__mible,
+    .home__trex,
+    .home__phone,
+    .home__smile {
+        display: none !important;
+    }
+
+    .home {
+        height: fit-content;
+        background: none;
+        padding-top: 0;
+
+        &__burgermaker {
+            margin-top: 0;
+            width: 100vw;
+            height: fit-content;
+            &-burger {
+                height: fit-content;
+                overflow: visible;
+            }
+            &-ingredient {
+                page-break-after: never;
+            }
+    
+            &-ingredients {
+                display: none;
+            }
+            &-print {
+                display: none;
+            }
+        }
+    }
+
+}
+
 @media (max-width: 600px) {
     body {
         font-size: 1rem !important;

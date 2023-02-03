@@ -116,6 +116,7 @@ body {
   font-family: "Free Pixel";
   text-rendering: geometricPrecision;
   cursor: url("../assets/cur.png"), default;
+  -webkit-print-color-adjust: exact;
 }
 
 *::selection {
@@ -366,14 +367,14 @@ body {
 }
 
 .home {
-  height: 320vh;
+  height: 380vh;
+  background: url("/assets/fiber.png");
   padding-top: 4rem;
   overflow: visible;
   position: relative;
   width: 100%;
   min-width: 30rem;
   margin: auto;
-  background: url("/assets/fiber.png");
   border: solid 5px white;
   border-top: 0;
   border-bottom: 0;
@@ -525,9 +526,85 @@ body {
 .home__burgermaker {
   width: 75%;
   min-width: 25rem;
+  color: var(--clr-main-white);
   background: url("/assets/ceramic.jpg");
+  margin: auto;
+  font-size: 1.5rem;
+  margin-top: 3rem;
+}
+.home__burgermaker-title, .home__burgermaker-print {
+  display: inline;
+}
+.home__burgermaker-ingredients {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.home__burgermaker-burger {
+  height: 32rem;
+  width: 100%;
+  padding: 1rem 0;
+  overflow: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column-reverse;
+}
+.home__burgermaker-part {
+  margin-top: -3rem;
+}
+.home__burgermaker-ingredient {
+  width: 3rem;
+  height: 3rem;
+  cursor: url("../assets/hover.png"), pointer;
 }
 
+@media print {
+  @page {
+    size: A4; /* ISO/JIS A4 */
+    margin: 0;
+  }
+  footer,
+header,
+.home__reviews,
+.home__guestbook,
+.home__about,
+.home__doggyz,
+.home__title,
+.home__subtitle,
+.home__projects,
+.home__mible,
+.home__trex,
+.home__phone,
+.home__smile {
+    display: none !important;
+  }
+  .home {
+    height: fit-content;
+    background: none;
+    padding-top: 0;
+  }
+  .home__burgermaker {
+    margin-top: 0;
+    width: 100vw;
+    height: fit-content;
+  }
+  .home__burgermaker-burger {
+    height: fit-content;
+    overflow: visible;
+  }
+  .home__burgermaker-ingredient {
+    page-break-after: never;
+  }
+  .home__burgermaker-ingredients {
+    display: none;
+  }
+  .home__burgermaker-print {
+    display: none;
+  }
+}
 @media (max-width: 600px) {
   body {
     font-size: 1rem !important;

@@ -16,6 +16,9 @@ export class homeController extends UiController {
             reviewForm: {
                 element: '.home__reviews-form',
                 events: ['click', 'keyup']
+            },
+            burgerMaker: {
+                element: '.home__burgermaker-burger'
             }
         };
         super(uiManager, domElements);
@@ -39,6 +42,8 @@ export class homeController extends UiController {
     }
 
     dogPitch = 1;
+
+    burgerIndex = 1;
 
     phoneUnlocked = false;
 
@@ -130,6 +135,19 @@ export class homeController extends UiController {
             case 'home__smile':
                 this.audioManager.loadAudioFile('yeah', null, 1.2);
                 this.uiRenderer.addParticle('smiley');
+                break;
+
+            case 'home__burgermaker-ingredient':
+                const ingredient = document.createElement('img');
+                ingredient.src = `/assets/${ev.target.dataset.ingredient}.png`;
+                ingredient.className = 'home__burgermaker-part';
+                this.burgerIndex++;
+                ingredient.style.zIndex = this.burgerIndex;
+                this.uiRenderer.getElement('burgerMaker').appendChild(ingredient);
+                break;
+
+            case 'home__burgermaker-print':
+                window.print();
                 break;
         }
     }

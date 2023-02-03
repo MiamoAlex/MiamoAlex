@@ -92,6 +92,7 @@ body {
   font-family: 'Free Pixel';
   text-rendering: geometricPrecision;
   cursor: url("../assets/cur.png"), default;
+  -webkit-print-color-adjust: exact;
 }
 
 * {
