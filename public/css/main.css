@@ -97,8 +97,8 @@ select {
     scroll-behavior: auto;
   }
   *,
-*::before,
-*::after {
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -367,7 +367,7 @@ body {
 }
 
 .home {
-  height: 380vh;
+  height: 300rem;
   background: url("/assets/fiber.png");
   padding-top: 4rem;
   overflow: visible;
@@ -567,18 +567,18 @@ body {
     margin: 0;
   }
   footer,
-header,
-.home__reviews,
-.home__guestbook,
-.home__about,
-.home__doggyz,
-.home__title,
-.home__subtitle,
-.home__projects,
-.home__mible,
-.home__trex,
-.home__phone,
-.home__smile {
+  header,
+  .home__reviews,
+  .home__guestbook,
+  .home__about,
+  .home__doggyz,
+  .home__title,
+  .home__subtitle,
+  .home__projects,
+  .home__mible,
+  .home__trex,
+  .home__phone,
+  .home__smile {
     display: none !important;
   }
   .home {
